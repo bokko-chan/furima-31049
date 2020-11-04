@@ -21,17 +21,17 @@
 
 ## items
 
-| Column   | Type       | Options                        |
-|:---------|:-----------|:-------------------------------|
-| title    | string     | null: false                    |
-| explain  | text       | null: false                    |
-| category | integer    | null: false                    |
-| status   | integer    | null: false                    |
-| carriage | integer    | null: false                    |
-| area     | integer    | null: false                    |
-| send     | integer    | null: false                    |
-| price    | integer    | null: false                    |
-| user     | references | null: false, foreign_key: true |
+| Column      | Type       | Options                        |
+|:------------|:-----------|:-------------------------------|
+| title       | string     | null: false                    |
+| explain     | text       | null: false                    |
+| category_id | integer    | null: false                    |
+| status_id   | integer    | null: false                    |
+| carriage_id | integer    | null: false                    |
+| area_id     | integer    | null: false                    |
+| send_id     | integer    | null: false                    |
+| price       | integer    | null: false                    |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 
