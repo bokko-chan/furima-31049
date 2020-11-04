@@ -54,14 +54,14 @@
 
 ## adresses
 
-| Column        | Type       | Options                        |
-|:--------------|:-----------|:-------------------------------|
-| postal        | string     | null: false                    |
-| prefectures   | integer    | null: false                    |
-| municipality  | string     | null: false                    |
-| street        | string     | null: false                    |
-| building      | string     |                                |
-| phone         | string     | null: false                    |
+| Column         | Type       | Options                        |
+|:---------------|:-----------|:-------------------------------|
+| postal         | string     | null: false                    |
+| prefectures_id | integer    | null: false                    |
+| municipality   | string     | null: false                    |
+| street         | string     | null: false                    |
+| building       | string     |                                |
+| phone          | string     | null: false                    |
 
 ### Association
 
