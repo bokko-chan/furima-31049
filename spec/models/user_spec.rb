@@ -70,6 +70,38 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is invalid")
       end
+      it "passwordが英字のみでは登録できない" do
+        @user.password = "aaaaaa"
+        @user.password_confirmation = "aaaaaa"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
+      end
+      it "passwordが数字のみでは登録できない" do
+        @user.password = "111111"
+        @user.password_confirmation = "111111"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
+      end
+      it "family_nameは全角（漢字・ひらがな・カタカナ）でなければ登録できない" do
+        @user.family_name = "yamada"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name is invalid")
+      end
+      it "first_nameは全角（漢字・ひらがな・カタカナ）でなければ登録できない" do
+        @user.first_name = "hanako"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name is invalid")
+      end
+      it "family_name_kanaは全角（カタカナ）でなければ登録できない" do
+        @user.family_name_kana = "やまだ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name kana is invalid")
+      end
+      it "first_name_kanaは全角（カタカナ）でなければ登録できない" do
+        @user.first_name_kana = "はなこ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name kana is invalid")
+      end
     end
 
     context '新規登録が成功するとき' do
@@ -96,6 +128,23 @@ RSpec.describe User, type: :model do
         @user.password_confirmation = "12345a"
         expect(@user).to be_valid
       end
+      it "family_nameは全角（漢字・ひらがな・カタカナ）であれば登録できる" do
+        @user.family_name = "山田やまだヤマダ"
+        expect(@user).to be_valid
+      end
+      it "first_nameは全角（漢字・ひらがな・カタカナ）であれば登録できる" do
+        @user.first_name = "花子はなこハナコ"
+        expect(@user).to be_valid
+      end
+      it "family_name_kanaは全角（カタカナ）であれば登録できる" do
+        @user.family_name_kana = "ヤマダ"
+        expect(@user).to be_valid
+      end
+      it "first_name_kanaは全角（カタカナ）であれば登録できる" do
+        @user.first_name_kana = "ハナコ"
+        expect(@user).to be_valid
+      end
     end
+    
   end
 end
