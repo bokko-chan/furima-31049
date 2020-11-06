@@ -64,12 +64,6 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Email is invalid")
       end
-      it "passwordは半角英数混合でなければ登録できない" do
-        @user.password = "123456"
-        @user.password_confirmation = "123456"
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid")
-      end
       it "passwordが英字のみでは登録できない" do
         @user.password = "aaaaaa"
         @user.password_confirmation = "aaaaaa"
@@ -109,11 +103,6 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user).to be_valid
       end
-      it "passwordが6文字以上であれば登録できる" do
-        @user.password = "12345a"
-        @user.password_confirmation = "12345a"
-        expect(@user).to be_valid
-      end
       it "passwordとpassword_confirmationが一致すれば登録できる" do
         @user.password = "12345a"
         @user.password_confirmation = "12345a"
@@ -129,7 +118,7 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
       it "family_nameは全角（漢字・ひらがな・カタカナ）であれば登録できる" do
-        @user.family_name = "山田やまだヤマダ"
+        @user.family_name = "山田やヤマダ"
         expect(@user).to be_valid
       end
       it "first_nameは全角（漢字・ひらがな・カタカナ）であれば登録できる" do
