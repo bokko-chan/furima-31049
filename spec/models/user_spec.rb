@@ -99,41 +99,14 @@ RSpec.describe User, type: :model do
     end
 
     context '新規登録が成功するとき' do
-      it "新規登録のフォームが入力されていれば登録できる" do
+      it "新規登録の全フォームが入力されていれば登録できる" do
         @user.valid?
-        expect(@user).to be_valid
-      end
-      it "passwordとpassword_confirmationが一致すれば登録できる" do
-        @user.password = "12345a"
-        @user.password_confirmation = "12345a"
         expect(@user).to be_valid
       end
       it "emailに@が含まれていれば登録できる" do
         @user.email = "aaa@aaa"
         expect(@user).to be_valid
       end
-      it "passwordが半角英数混合であれば登録できる" do
-        @user.password = "12345a"
-        @user.password_confirmation = "12345a"
-        expect(@user).to be_valid
-      end
-      it "family_nameは全角（漢字・ひらがな・カタカナ）であれば登録できる" do
-        @user.family_name = "山田やヤマダ"
-        expect(@user).to be_valid
-      end
-      it "first_nameは全角（漢字・ひらがな・カタカナ）であれば登録できる" do
-        @user.first_name = "花子はなこハナコ"
-        expect(@user).to be_valid
-      end
-      it "family_name_kanaは全角（カタカナ）であれば登録できる" do
-        @user.family_name_kana = "ヤマダ"
-        expect(@user).to be_valid
-      end
-      it "first_name_kanaは全角（カタカナ）であれば登録できる" do
-        @user.first_name_kana = "ハナコ"
-        expect(@user).to be_valid
-      end
     end
-    
   end
 end
