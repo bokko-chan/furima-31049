@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associatons::ActiveRecordExtensions
   belongs_to :user, :category, :status, :carriage, :area, :send
+  has_one_attached :image
   with_options presence: ture do
     validates :title, :explain
     validates :price, format: { /\A[0-9]+\z/ }
