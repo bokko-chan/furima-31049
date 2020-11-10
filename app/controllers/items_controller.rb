@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+<<<<<<< HEAD
   def destroy
     item = Item.find(params[:id])
     if item.destroy
@@ -29,6 +30,8 @@ class ItemsController < ApplicationController
     end
   end
   
+=======
+>>>>>>> parent of baa20d9... 新規ブランチ作成のためマスターへコミット
   private
     def item_params
       params.require(:item).permit(:title, :explain, :category_id, :status_id, :carriage_id, :area_id, :shipping_id, :price, :image).merge(user_id: current_user.id)
