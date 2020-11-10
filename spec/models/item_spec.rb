@@ -45,10 +45,10 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Area must be other than 1")
       end
-      it 'send_idが空では保存できない' do
-        @item.send_id = 1
+      it 'shipping_idが空では保存できない' do
+        @item.shipping_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Send must be other than 1")
+        expect(@item.errors.full_messages).to include("Shipping must be other than 1")
       end
       it 'priceが空では保存できない' do
         @item.price = nil

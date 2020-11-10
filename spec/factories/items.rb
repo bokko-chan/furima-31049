@@ -6,7 +6,7 @@ FactoryBot.define do
     status_id {2}
     carriage_id {2}
     area_id {2}
-    send_id {2}
+    shipping_id {2}
     price {Faker::Number.within(range:300..9999999)}
     association :user
 
