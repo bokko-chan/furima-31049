@@ -67,7 +67,7 @@
 
 - belongs_to :purchase
 
-## pruchases
+## purchases
 
 | Column   | Type       | Options                        |
 |:---------|:-----------|:-------------------------------|
