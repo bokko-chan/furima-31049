@@ -37,7 +37,7 @@
 
 - belongs_to :user
 - has_many :comments
-- has_one :purches
+- has_one :purchas
 
 ## comments
 
@@ -67,7 +67,7 @@
 
 - belongs_to :purches
 
-## prucheses
+## pruchases
 
 | Column   | Type       | Options                        |
 |:---------|:-----------|:-------------------------------|
