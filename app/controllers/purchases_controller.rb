@@ -3,6 +3,7 @@ class PurchasesController < ApplicationController
 
   def index
     @item = Item.find(params[:id])
+    @adress = Adress.all
   end
 
 end
