@@ -1,4 +1,4 @@
-class Adress < ApplicationRecord
+class Address < ApplicationRecord
   
   with_options presence: true do
     validates :prefecture_id, :municipality, :street

@@ -52,7 +52,7 @@
 - belongs_to :user
 - belongs_to :item
 
-## adresses
+## addresses
 
 | Column         | Type       | Options                        |
 |:---------------|:-----------|:-------------------------------|

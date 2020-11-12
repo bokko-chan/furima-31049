@@ -11,7 +11,7 @@ const pay = () => {
       number: formData.get("purchase[number]"),
       cvc: formData.get("purchase[cvc]"),
       exp_month: formData.get("purchase[exp_month]"),
-      exp_year: `20${formData.get("order[exp_year]")}`,
+      exp_year: `20${formData.get("purchase[exp_year]")}`,
     };
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
@@ -19,14 +19,15 @@ const pay = () => {
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} name='token' type="hidden">`;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
+        debugger;
       }
 
-      document.getElementById("purchase_number").removeAttribute("name");
-      document.getElementById("purchase_cvc").removeAttribute("name");
-      document.getElementById("purchase_exp_month").removeAttribute("name");
-      document.getElementById("purchase_exp_year").removeAttribute("name");
+      // document.getElementById("purchase_number").removeAttribute("name");
+      // document.getElementById("purchase_cvc").removeAttribute("name");
+      // document.getElementById("purchase_exp_month").removeAttribute("name");
+      // document.getElementById("purchase_exp_year").removeAttribute("name");
 
-      document.getElementById("charge-form").submit();
+      // document.getElementById("charge-form").submit();
     });
   });
 };
