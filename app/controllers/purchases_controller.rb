@@ -2,15 +2,14 @@ class PurchasesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    #フォームオブジェクトのインスタンスを生成し、インスタンス変数に代入する
-    # binding.pry
     @item = Item.find(params[:item_id])
-    # @address = Address.new
+    @purchase_address = PurchaseAddress.new
   end
 
   def create
-    @address = Address.new(address_params)
-      if @address.save
+    # binding.pry
+    @purchase_address = PurchaseAddress.new(address_params)
+      if @purchase_address.save
         redirect_to root_path
       else
         render :index
@@ -18,8 +17,8 @@ class PurchasesController < ApplicationController
   end
 
   private
-
   def address_params
-    params.require(:address).permit(:postal, :prefecture_id, :municipality, :street, :building, :phone)#.merge(user_id: current_user.id)
+    params.require(:purchase_address).permit(:postal, :prefecture_id, :municipality, :street, :building, :phone, :user_id, :item_id)
   end
+
 end
