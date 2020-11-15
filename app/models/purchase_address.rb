@@ -3,9 +3,10 @@ class PurchaseAddress
   attr_accessor :user_id, :item_id, :postal, :prefecture_id, :municipality, :street, :building, :phone, :token
 
   with_options presence: true do
-    validates :prefecture_id, :municipality, :street, :token
+    validates :municipality, :street, :token
     validates :postal, format: { with: /\A\d{3}[-]\d{4}\z/ }
-    validates :phone,  format: { with: /\A\d{11}\z/ }
+    validates :prefecture_id, numericality: { other_than: 1 }
+    validates :phone, format: { with: /\A\d{10,11}\z/ }
   end
 
   def save
