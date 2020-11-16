@@ -17,7 +17,7 @@
 
 - has_many :items
 - has_many :comments
-- has_many :purcheses
+- has_many :purchases
 
 ## items
 
@@ -37,7 +37,7 @@
 
 - belongs_to :user
 - has_many :comments
-- has_one :purches
+- has_one :purchase
 
 ## comments
 
@@ -52,12 +52,12 @@
 - belongs_to :user
 - belongs_to :item
 
-## adresses
+## addresses
 
 | Column         | Type       | Options                        |
 |:---------------|:-----------|:-------------------------------|
 | postal         | string     | null: false                    |
-| prefectures_id | integer    | null: false                    |
+| prefecture_id  | integer    | null: false                    |
 | municipality   | string     | null: false                    |
 | street         | string     | null: false                    |
 | building       | string     |                                |
@@ -65,9 +65,9 @@
 
 ### Association
 
-- belongs_to :purches
+- belongs_to :purchase
 
-## prucheses
+## purchases
 
 | Column   | Type       | Options                        |
 |:---------|:-----------|:-------------------------------|
